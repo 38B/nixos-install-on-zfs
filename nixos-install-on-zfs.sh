@@ -107,7 +107,6 @@ create_datasets () {
 }
 
 create_mounts () {
-  mkdir /mnt/boot
   mkdir /mnt/nix
   mkdir /mnt/home
   mkdir /mnt/persist
