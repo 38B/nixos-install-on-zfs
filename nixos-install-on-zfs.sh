@@ -107,6 +107,7 @@ create_datasets () {
 }
 
 create_mounts () {
+  mkdir /mnt/boot
   mkdir /mnt/nix
   mkdir /mnt/home
   mkdir /mnt/persist
@@ -169,10 +170,10 @@ partition_disk
 create_pool_zroot
 generate_hostid
 create_datasets
-export_pool
-import_pool
 create_mounts 
 mount_datasets
+export_pool
+import_pool
 append_nixos_config
 
 
