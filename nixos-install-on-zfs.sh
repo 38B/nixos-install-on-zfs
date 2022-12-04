@@ -5,6 +5,11 @@ print () {
     echo -e "\n\033[1m> $1\033[0m\n"
 }
 
+ask () {
+    read -p "> $1 " -r
+    echo
+}
+
 tests () {
     ls /sys/firmware/efi/efivars > /dev/null && \
         ping nixos.org -c 1 > /dev/null &&  \
@@ -138,7 +143,7 @@ append_nixos_config () {
   '';
   boot.kernelParams = [ "elevator=none" ];
   }
-  CONFIG
+CONFIG
 
   print "Append configuration to configuration.nix"
   sed -i "\$ s/.}\$//;\$e cat $HARDWARE_CONFIG" /mnt/etc/nixos/configuration.nix
