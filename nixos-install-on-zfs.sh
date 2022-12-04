@@ -138,11 +138,12 @@ append_nixos_config () {
     zfs rollback -r zroot/ephemeral/slash@blank
   '';
   boot.kernelParams = [ "elevator=none" ];
-  }
+}
 CONFIG
 
   print "Append configuration to configuration.nix"
-  mkdir /tmp/nixos && head -n -1 /mnt/etc/nixos/configuration.nix > /tmp/nixos/configuration.tmp && mv /tmp/nixos/configuration.tmp /mnt/etc/nixos/configuration.nix
+  CONFIG_TEMP=$(mktemp)
+  head -n -1 /mnt/etc/nixos/configuration.nix > "$CONFIG_TEMP" && cat "$CONFIG_TEMP" > /mnt/etc/nixos/configuration.nix
   cat "$HARDWARE_CONFIG" >> /mnt/etc/nixos/configuration.nix
 }
 
