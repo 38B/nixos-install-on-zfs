@@ -143,7 +143,7 @@ CONFIG
 
   print "Append configuration to configuration.nix"
   head -n -1 /mnt/etc/nixos/configuration.nix > /tmp/nixos/configuration.tmp && mv /tmp/nixos/configuration.tmp /mnt/etc/nixos/configuration.nix
-  cat $HARDWARE_CONFIG" >> /mnt/etc/nixos/configuration.nix
+  cat "$HARDWARE_CONFIG" >> /mnt/etc/nixos/configuration.nix
 }
 
 export_pool () {
