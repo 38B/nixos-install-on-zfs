@@ -142,9 +142,13 @@ append_nixos_config () {
 CONFIG
 
   print "Append configuration to configuration.nix"
+  CONFIG_FILE="/mnt/etc/nixos/configuration.nix"
   CONFIG_TEMP=$(mktemp)
-  head -n -2 /mnt/etc/nixos/configuration.nix > "$CONFIG_TEMP" && cat "$CONFIG_TEMP" > /mnt/etc/nixos/configuration.nix
-  cat "$HARDWARE_CONFIG" >> /mnt/etc/nixos/configuration.nix
+  sed '1,4d' $CONFIG_FILE > $CONFIG_TEMP
+  sed -i '1i\{ config, pkgs, lib, ... }' $CONFIG_TEMP
+  head -n -2 "$CONFIG_TEMP" 
+  cat "$CONFIG_TEMP" > $CONFIG_FILE
+  cat "$HARDWARE_CONFIG" >> $CONFIG_FILE
 }
 
 export_pool () {
