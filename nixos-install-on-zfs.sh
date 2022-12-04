@@ -166,10 +166,10 @@ wipe
 partition_disk
 create_pool_zroot
 create_datasets
-mount_datasets
 generate_hostid
 export_pool
 import_pool
+mount_datasets
 append_nixos_config
 
 
