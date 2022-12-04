@@ -106,15 +106,12 @@ create_datasets () {
 
 }
 
-create_mounts () {
+mount_datasets () {
+  mount -t zfs zroot/ephemeral/slash /mnt
   mkdir /mnt/boot
   mkdir /mnt/nix
   mkdir /mnt/home
   mkdir /mnt/persist
-}
-
-mount_datasets () {
-  mount -t zfs zroot/ephemeral/slash /mnt
   mount $EFI /mnt/boot
   mount -t zfs zroot/ephemeral/nix /mnt/nix
   mount -t zfs zroot/eternal/home /mnt/home
@@ -168,10 +165,9 @@ select_disk
 wipe
 partition_disk
 create_pool_zroot
-generate_hostid
 create_datasets
-create_mounts 
 mount_datasets
+generate_hostid
 export_pool
 import_pool
 append_nixos_config
