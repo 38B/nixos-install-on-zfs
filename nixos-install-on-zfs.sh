@@ -170,6 +170,7 @@ generate_hostid
 export_pool
 import_pool
 mount_datasets
+generate_nixos_config
 append_nixos_config
 
 
