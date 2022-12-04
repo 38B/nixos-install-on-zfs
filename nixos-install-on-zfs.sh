@@ -170,9 +170,9 @@ partition_disk
 create_pool_zroot
 generate_hostid
 create_datasets
-create_mounts 
 export_pool
 import_pool
+create_mounts 
 mount_datasets
 append_nixos_config
 
