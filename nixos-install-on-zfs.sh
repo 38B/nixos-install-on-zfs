@@ -143,7 +143,7 @@ CONFIG
 
   print "Append configuration to configuration.nix"
   CONFIG_TEMP=$(mktemp)
-  head -n -1 /mnt/etc/nixos/configuration.nix > "$CONFIG_TEMP" && cat "$CONFIG_TEMP" > /mnt/etc/nixos/configuration.nix
+  head -n -2 /mnt/etc/nixos/configuration.nix > "$CONFIG_TEMP" && cat "$CONFIG_TEMP" > /mnt/etc/nixos/configuration.nix
   cat "$HARDWARE_CONFIG" >> /mnt/etc/nixos/configuration.nix
 }
 
