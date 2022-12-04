@@ -94,7 +94,7 @@ create_datasets () {
 
     # /nix dataset
     print "Creating nix dataset in ephemereal"
-    zfs create -o mountpoint=legacy -o atime=off zroot/ephemeral/nix
+    zfs create -o mountpoint=legacy zroot/ephemeral/nix
     
     # /home dataset
     print "Creating home dataset in eternal"
